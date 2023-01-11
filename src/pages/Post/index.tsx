@@ -14,9 +14,49 @@ import {
   SummaryContainer,
   SummaryLinks,
 } from "./styles";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import { api } from "../../lib/axios";
+import { useCallback, useEffect, useState } from "react";
+import { relativeDateFormatter } from "../../utils/formatter";
+import { IssueInfo } from "../Home/IssueInfo";
+
+const username = "GuiOrlandin";
+const repo = "Github-Blog";
 
 export function Post() {
+  const [postData, setPostData] = useState<IssueInfo | null>(null);
+  const { id } = useParams();
+
+  // const formattedDate = relativeDateFormatter(postData.created_at);
+  // const getPost = useCallback(async () => {
+  //   const response = await api.get(`/repos/${username}/${repo}/issues/${id}`);
+  //   setPostData(response.data);
+  //   console.log(response.data.user.login);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  useEffect(() => {
+    const getPost = async () => {
+      const response = await api.get(`/repos/${username}/${repo}/issues/${id}`);
+      setPostData(response.data);
+      console.log(response.data.user.login);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    getPost();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // useEffect(() => {
+  //   if (postData) {
+  //     console.log(postData);
+  //   } else {
+  //     console.log(postData);
+  //   }
+  // }, [postData]);
+  if (!postData) {
+    return <h1>Loading</h1>;
+  }
+
   return (
     <PostContainer>
       <SummaryContainer>
@@ -25,24 +65,27 @@ export function Post() {
             <img src={arrowleft} alt="" />
             VOLTAR
           </NavLink>
-          <a href="" style={{ textDecoration: "none" }}>
+          <a href={postData.html_url} style={{ textDecoration: "none" }}>
             VER NO GITHUB <img src={arrowup} alt="" />
           </a>
         </SummaryLinks>
 
         <h1>JavaScript data types and data structures</h1>
         <AboutUser>
-          <p>
-            <img src={githubicon} alt="" />
-            login
-          </p>
-          <p>
-            <img src={calendaricon} alt="" /> Rocketseat
-          </p>
-          <p>
+          {postData.user.login && (
+            <p>
+              <img src={githubicon} alt="" />
+              {postData.user.login}
+            </p>
+          )}
+
+          {/* <p>
+            <img src={calendaricon} alt="" /> {formattedDate}
+          </p> */}
+          {/* <p>
             <img src={commenticon} alt="" />
-            32 comentários
-          </p>
+            {postData.comments} comentários
+          </p> */}
         </AboutUser>
       </SummaryContainer>
       <PostContent>
