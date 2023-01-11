@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const SummaryContainer = styled.header`
   display: flex;
+  width: 54rem;
   align-items: center;
   justify-content: center;
-  margin: -5.5625rem 18rem 4.5rem 18rem;
+  margin: -5.5625rem 18rem 0 18rem;
   padding: 2rem;
   background-color: ${(props) => props.theme["base-profile"]};
   border-radius: 10px;
@@ -17,9 +18,16 @@ export const SummaryContent = styled.div`
   }
 `;
 
+export const AvatarImg = styled.img`
+  height: 9.25rem;
+  width: 9.25rem;
+  border-radius: 8px;
+`;
+
 export const DescriptionUser = styled.p`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  width: 38.25rem;
 `;
 
 export const NameAndGitHub = styled.div`

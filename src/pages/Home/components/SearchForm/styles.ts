@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SearchFormContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 54rem;
   margin: 4.5rem 18rem 3rem 18rem;
   color: ${(props) => props.theme["base-label"]};
 
