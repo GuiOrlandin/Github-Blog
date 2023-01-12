@@ -64,7 +64,7 @@ export const PostContent = styled.div`
   margin: 0 18rem;
   height: 100%;
   width: 48.8125rem;
-  padding: 2.5rem 2rem;
+  padding: 0 2rem 2.5rem 2rem;
 
   a {
     text-decoration: none;
