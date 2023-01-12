@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const PostContainer = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 `;
 
 export const SummaryContainer = styled.header`
@@ -9,8 +12,9 @@ export const SummaryContainer = styled.header`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  margin: -5.5625rem 18rem 2.5rem 18rem;
+  margin: -5.5625rem 18rem 0 18rem;
   padding: 2rem;
+  width: 48.8125rem;
   background-color: ${(props) => props.theme["base-profile"]};
   border-radius: 10px;
 
@@ -38,11 +42,6 @@ export const SummaryContainer = styled.header`
   }
 `;
 
-export const DescriptionUser = styled.p`
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-`;
-
 export const SummaryLinks = styled.div`
   display: flex;
   justify-content: space-between;
@@ -62,43 +61,40 @@ export const AboutUser = styled.div`
 `;
 
 export const PostContent = styled.div`
-  margin: 0 20rem 4.5rem 20rem;
-`;
+  margin: 0 18rem;
+  height: 100%;
+  width: 48.8125rem;
+  padding: 2.5rem 2rem;
 
-export const ResumeAndContent = styled.div`
+  a {
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: ${(props) => props.theme.blue};
+    text-decoration: underline solid ${(props) => props.theme.blue};
+  }
+
   h2 {
     margin-top: 2rem;
-    color: ${(props) => props.theme.blue};
-    font-size: 1rem;
-    font-weight: 400;
-    text-decoration: underline;
+    color: ${(props) => props.theme["base-text"]};
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
   }
-`;
-
-export const ExampleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-radius: 2px;
-  padding: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
-
-  background: ${(props) => props.theme["base-post"]};
 
   p {
-    display: flex;
-    gap: 0.5rem;
+    margin: 2rem 0;
   }
 
-  strong {
-    color: #6ad445;
+  li {
+    font-size: 1rem;
+    margin: 1rem 0 1rem 1rem;
   }
 
-  span {
-    color: #80abd6;
+  img {
+    margin-top: 1.5rem;
+    width: 100%;
   }
-`;
-
-export const Comment = styled.div`
-  display: flex;
 `;

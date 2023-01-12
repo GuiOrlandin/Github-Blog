@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { CardContainer, CardContent, TittleAndDate } from "./styles";
 import ReactMarkdown from "react-markdown";
 import { relativeDateFormatter } from "../../../../utils/formatter";
-import { IssueInfo } from "../../IssueInfo";
+import { IssueInfo } from "../..";
 
 interface publicationsListProps {
   issue: IssueInfo;
