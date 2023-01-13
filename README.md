@@ -2,7 +2,7 @@
 
 ## ▶ Preview
 
-[![Deploy with Vercel](https://vercel.com/button)](github-blog-henna.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://github-blog-henna.vercel.app/)
 
 ## 📃 About
 
